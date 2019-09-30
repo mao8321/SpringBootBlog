@@ -1,0 +1,16 @@
+aap.yydm: frame
+aap.version: 0.0.1
+server.port: 8888
+server.servlet.contextpath: "/frame"
+
+
+spring.resources.static-locations: classpath:/resources/static/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
+spring.devtools.restart.enabled: true
+spring.devtools.restart.additional-paths: classpath:/templates/
+
+spring.thymeleaf.enabled: true
+spring.thymeleaf.cache: false
+spring.thymeleaf.encoding: UTF-8
+spring.thymeleaf.prefix: classpath:/templates/
+spring.thymeleaf.suffix: .html
