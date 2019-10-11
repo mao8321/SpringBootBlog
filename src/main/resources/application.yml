@@ -3,8 +3,10 @@ aap.version: 0.0.1
 server.port: 8888
 server.servlet.contextpath: "/frame"
 
-
-spring.resources.static-locations: classpath:/resources/static/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+spring.mvc.contentnegotiation.favor-parameter: true
+spring.mvc.contentnegotiation.favor-path-extension: true
+spring.mvc.static-path-pattern: /static/**
+spring.resources.static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
 
 spring.devtools.restart.enabled: true
 spring.devtools.restart.additional-paths: classpath:/templates/

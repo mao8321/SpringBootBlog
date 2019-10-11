@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >hello</title>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+
+</head>
+
+<body>
+
+<div th:each="str:${strList}">
+    <input type = "checkbox" name="file" th:value="${str}"/>
+    <lable th:text="${str}"></lable>
+</div>
+<input type ="button" id="init" value="生成html"/>
+<script>
+    $(document).ready(function(){
+        alert("hello world");
+    });
+</script>
+</body>
+</html>

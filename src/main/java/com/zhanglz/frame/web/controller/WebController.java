@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("web")
@@ -17,9 +19,17 @@ public class WebController {
 
     @RequestMapping("index")
     public String index(HttpServletRequest request){
-        webService.initFile();
-        request.setAttribute("name","张力中");
+        List<String> strList = webService.getFileList();
+        request.setAttribute("strList",strList);
         return "index";
+    }
+
+    @RequestMapping("initFile")
+    public void init(HttpServletRequest request){
+        String nameStr = request.getParameter("nameStr");
+        for(String str : nameStr.split("_")){
+            webService.initFile(str);
+        }
     }
 
     @RequestMapping("show")

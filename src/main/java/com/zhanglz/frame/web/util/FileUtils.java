@@ -37,13 +37,19 @@ public class FileUtils {
         return sb.toString();
     }
 
-    public static void createHtml(NoteFile note ) throws Exception{
-        File file = new File(getPath()+"templates/note_01.html");
-        if(!file.exists()){
-            file.createNewFile();
+    public static void createHtml(NoteFile note) throws Exception{
+        File file = new File(getPath()+"static/noteframe/note_01.html");
+        File files = new File(getPath() + "templates"+note.getTilte()+".html");
+        log.info(getPath());
+        if(!files.exists()){
+            files.createNewFile();
         }
-        FileOutputStream fos = new FileOutputStream(file);
-        fos.write(note.getText().getBytes());
+        String text = FileUtils.getFileText(file);
+        text = text.replace("@@title@@",note.getTilte());
+        text = text.replace("@@time@@",note.getTime());
+        text = text.replace("@@text@@",note.getText());
+        FileOutputStream fos = new FileOutputStream(files);
+        fos.write(text.getBytes());
         fos.close();
     }
 }
