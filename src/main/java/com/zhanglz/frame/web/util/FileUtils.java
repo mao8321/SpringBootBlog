@@ -39,7 +39,7 @@ public class FileUtils {
 
     public static void createHtml(NoteFile note) throws Exception{
         File file = new File(getPath()+"static/noteframe/note_01.html");
-        File files = new File(getPath() + "templates"+note.getTilte()+".html");
+        File files = new File(getPath() + "templates/"+note.getTilte()+".html");
         log.info(getPath());
         if(!files.exists()){
             files.createNewFile();

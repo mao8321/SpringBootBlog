@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title >hello</title>
     <script type="text/javascript" th:src="@{/static/js/jquery.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/index.js}"></script>
 
 </head>
 
@@ -14,23 +15,9 @@
     <input type = "checkbox" name="file" th:value="${str}"/>
     <lable th:text="${str}"></lable>
 </div>
+<div th:each="str:${htmlList}">
+    <a th:href="@{show(url=${str})}" th:text="${str}"></a>
+</div>
 <input type ="button" id="init" value="生成html"/>
-<script>
-    $(document).ready(function(){
-        $("#init").click(function(){
-            var nameStr = "";
-            $("input[name='file']:checked").each(function(){
-                    nameStr += $(this).val() + "_";
-            });
-            $.ajax({
-                type : "POST",
-                url : @{},
-                data : {
-                    'nameStr' : nameStr
-                }
-            });
-        });
-    });
-</script>
 </body>
 </html>

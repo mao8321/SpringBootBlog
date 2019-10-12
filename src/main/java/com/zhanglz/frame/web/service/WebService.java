@@ -32,7 +32,7 @@ public class WebService {
         NoteFile noteFile = new NoteFile();
         String text = FileUtils.getFileText(file);
         noteFile.setText(text);
-        noteFile.setTilte(file.getName());
+        noteFile.setTilte(fileName.split("\\.")[0]);
         noteFile.setTime(DateUtils.longTimeToDate(file.lastModified()));
         return noteFile;
     }
@@ -47,4 +47,18 @@ public class WebService {
         }
         return nameList;
     }
+    public List<String> getHtmlList(){
+        File files = new File(FileUtils.getPath() + "templates/");
+        List<String> urlList = new ArrayList<String>();
+        log.info(FileUtils.getPath() + " templates/");
+        if(files.isDirectory()){
+            for(File file : files.listFiles()){
+                log.info("{} = {}",FileUtils.getPath() + " templates/", file.getName());
+                urlList.add(file.getName());
+
+            }
+        }
+        return urlList;
+    }
+
 }

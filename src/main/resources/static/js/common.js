@@ -1,0 +1,1 @@
+projectName = window.document.location.pathname.split("/")[0];
